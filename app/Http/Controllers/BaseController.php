@@ -17,7 +17,13 @@ class BaseController extends Controller
         return view('home',['books' => $books]);
 
     }
-    //
+    
+
+    //Add book view
+    public function addbook(){
+
+        return view('addbook');
+    }
 
    
 }

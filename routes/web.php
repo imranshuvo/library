@@ -14,3 +14,5 @@
 */
 
 $router->get('/','BaseController@home');
+
+$router->get('/add','BaseController@addbook');
