@@ -7,7 +7,7 @@
 	</div>
 
 	<div class="row">
-		<form class="col s12">
+		<form class="col s12" method="post" action="/addbook">
 			<div class="input-field col s12">
 				<input type="text" name="title" placeholder="Book title">
 				<label for="Title">Title</label>

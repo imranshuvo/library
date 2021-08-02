@@ -16,3 +16,7 @@
 $router->get('/','BaseController@home');
 
 $router->get('/add','BaseController@addbook');
+$router->get('/search/{title}', 'BaseController@search');
+
+
+$router->post('/addbook','BaseController@createBook');
