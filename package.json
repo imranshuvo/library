@@ -13,7 +13,6 @@
         "autoprefixer": "^10.4.7",
         "axios": "^0.25",
         "browser-sync": "^1.9.2",
-        "browser-sync-webpack-plugin": "^0.1.0",
         "laravel-mix": "^6.0.6",
         "lodash": "^4.17.19",
         "postcss": "^8.4.13",
