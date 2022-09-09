@@ -6,6 +6,7 @@ import './assets/style.css';
 
 import LoginPage from './components/LoginPage.vue';
 import SearchForm from './components/SearchForm.vue';
+import AllBooks from './components/AllBooks.vue';
 
 const router = createRouter({
     history: createWebHistory(),
@@ -17,7 +18,11 @@ const router = createRouter({
         {
             path: '/', 
             component: SearchForm 
-        } 
+        },
+        {
+            path: '/books',
+            component: AllBooks
+        }
     ]
 });
 
