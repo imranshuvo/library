@@ -1,18 +1,14 @@
 <template>
   <header-elm></header-elm>
-  <search-form></search-form>
-  <book-result></book-result>
-  <footer-elm></footer-elm>
+  <router-view></router-view>  
 </template>
 
 <script>
-  import HeaderElm from './components/HeaderElm.vue';
-  import SearchForm from './components/SearchForm.vue';
+import HeaderElm from './components/HeaderElm.vue';
 
 export default {
   name: 'App',
   components: {
-    SearchForm,
     HeaderElm
   }
 }

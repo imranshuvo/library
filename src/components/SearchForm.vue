@@ -1,12 +1,13 @@
 <!-- eslint-disable no-mixed-spaces-and-tabs -->
 <template>
   	<div>
-		<form @keyup.prevent="searchBooks">
+		<form @submit.prevent="">
 			<input 
 				type="text" 
 				v-model="search" 
 				placeholder="Search for books here"
-				class="border p-4 w-1/3 my-8 border-slate-500">
+				class="border p-4 w-1/3 my-8 border-slate-500"
+				@keyup="SearchBook">
 		</form>
   	</div>
 </template>
@@ -16,7 +17,9 @@ export default {
   name: "SearchForm",
   created() {},
   data() {
-    return {};
+    return {
+		search: ''
+	};
   },
   props: {},
   methods: {},
