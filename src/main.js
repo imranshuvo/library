@@ -10,6 +10,8 @@ import AllBooks from './components/AllBooks.vue';
 import UserDashboard from './components/UserDashboard.vue';
 
 import './env.js';
+import 'flowbite';
+
 
 import { getAuth, onAuthStateChanged } from "firebase/auth";
 
