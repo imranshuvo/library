@@ -7,7 +7,7 @@
 				v-model="search" 
 				placeholder="Search for books here"
 				class="border p-4 w-1/3 my-8 border-slate-500"
-				@keyup="SearchBook">
+				@keyup="searchBook">
 		</form>
   	</div>
 </template>
@@ -22,7 +22,13 @@ export default {
 	};
   },
   props: {},
-  methods: {},
+  methods: {
+	searchBook(){
+		setTimeout(function(){
+
+		}, 500);
+	}
+  },
 };
 </script>
 

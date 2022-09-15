@@ -5,6 +5,7 @@
 		<ul class="list-none flex">
 			<li class="mx-2"><router-link to="/books">Books</router-link></li>
 			<li class="mx-2"><router-link to="/login">Login</router-link></li>
+			<li class="mx-2"><a href="#" @click.prevent="signOut">Logout</a></li>
 		</ul>
     </div>
     
@@ -12,6 +13,8 @@
 </template>
 
 <script>
+	import { getAuth, signOut } from "firebase/auth";
+
 export default {
   name: "HeaderElm",
   created() {},
@@ -19,8 +22,25 @@ export default {
     return {};
   },
   props: {},
-  methods: {},
+  methods: {
+	signOut(){
+		const auth = getAuth();
+		signOut(auth).then(() => {
+		// Sign-out successful.
+		console.log('signed out');
+		this.$router.push('/login');
+		
+		}).catch((error) => {
+		// An error happened.
+		console.log(error);
+		});
+	}
+  },
 };
 </script>
 
-<style lang="scss" scoped></style>
+<style scoped>
+	.router-link-active  {
+		text-decoration: underline;
+	}
+</style>
