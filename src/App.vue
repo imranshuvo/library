@@ -1,17 +1,21 @@
 <template>
-  <header-elm></header-elm>
-  <router-view></router-view>  
+  <header-elm :isLoggedIn="isLoggedIn"></header-elm>
+  <router-view></router-view>
 </template>
 
 <script>
-import HeaderElm from './components/HeaderElm.vue';
+import HeaderElm from "./components/HeaderElm.vue";
 
 export default {
-  name: 'App',
+  name: "App",
   components: {
-    HeaderElm
-  }
-}
+    HeaderElm,
+  },
+  data() {
+    return {};
+  },
+  method: {},
+};
 </script>
 
 <style>
