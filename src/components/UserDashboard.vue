@@ -71,10 +71,23 @@
     </div>
     <div class="main-content w-10/12">
       <div v-if="dashboardActive" id="dashboard">
-        <h2>Dashboard</h2>
+        <h2>
+          <span v-if="displayName">{{ displayName }}, </span>Welcome to your dashboard!
+        </h2>
       </div>
       <div v-if="profileActive" id="profile">
-        <h2>Profile</h2>
+        <h2 class="text-left mb-6 text-xl">Profile</h2>
+        <div class="text-green-500 text-left">{{ message }}</div>
+        <form @submit.prevent="updateUser" class="flex flex-col w-full">
+          <input type="text" v-model="email" class="mb-4" placeholder="Enter email" />
+          <input
+            type="text"
+            v-model="displayName"
+            class="mb-4"
+            placeholder="Enter display name"
+          />
+          <button type="submit" class="bg-slate-500 p-4 text-white">Update</button>
+        </form>
       </div>
       <div v-if="mybooksActive" id="mybooks">
         <h2>My Books</h2>
@@ -84,7 +97,7 @@
 </template>
 
 <script>
-import { getAuth, onAuthStateChanged } from "firebase/auth";
+import { getAuth, onAuthStateChanged, updateProfile } from "firebase/auth";
 
 export default {
   name: "UserDashboard",
@@ -93,12 +106,14 @@ export default {
     return {
       isLoggedIn: true,
       email: "",
+      displayName: "",
       user: this.getUser(),
       profileActive: false,
       dashboardActive: true,
       mybooksActive: false,
 
       className: "",
+      message: "",
     };
   },
   methods: {
@@ -108,11 +123,28 @@ export default {
         if (user) {
           this.user = user;
           this.email = this.user.email;
+          this.displayName = user.displayName;
           console.log(this.user);
         } else {
           this.$router.push("/login");
         }
       });
+    },
+
+    updateUser() {
+      const auth = getAuth();
+      updateProfile(auth.currentUser, {
+        displayName: this.displayName,
+        email: this.email,
+      })
+        .then(() => {
+          //profile updated
+          this.message = "Profile updated successfully!";
+        })
+        .catch((error) => {
+          //Something went wrong
+          console.log(error);
+        });
     },
 
     activate(con) {
