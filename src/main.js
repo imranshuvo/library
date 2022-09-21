@@ -8,6 +8,7 @@ import LoginPage from './components/LoginPage.vue';
 import SearchForm from './components/SearchForm.vue';
 import AllBooks from './components/AllBooks.vue';
 import UserDashboard from './components/UserDashboard.vue';
+import AddBook from './components/AddBook.vue';
 
 import './env.js';
 import 'flowbite';
@@ -33,6 +34,13 @@ const router = createRouter({
         {
             path: '/dashboard',
             component: UserDashboard,
+            meta: {
+                requiresAuth: true
+            }
+        },
+        {
+            path: '/add',
+            component: AddBook,
             meta: {
                 requiresAuth: true
             }
