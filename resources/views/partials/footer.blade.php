@@ -1,7 +1,5 @@
         
         
-        </div>
-
         <!-- Footer copyright  -->
         <div class="absolute bottom-6 left-0 right-0">
             <div class="flex justify-center mt-4 sm:items-center">
